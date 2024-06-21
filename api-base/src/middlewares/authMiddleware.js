@@ -18,6 +18,7 @@ const isAuthorizaed = async (req, res, next) => {
     res
       .status(StatusCodes.UNAUTHORIZED)
       .json({ message: 'Unauthorized! (Token not found(' });
+    return;
   }
 
   //? Cách 2: Lấy accessToken nằm trong trường hợp phía FE lưu LocalStorage và gửi lên thông qua Header Authentication
@@ -28,6 +29,7 @@ const isAuthorizaed = async (req, res, next) => {
     res
       .status(StatusCodes.UNAUTHORIZED)
       .json({ message: 'Unauthorized! (Token not found)' });
+    return;
   }
 
   try {
